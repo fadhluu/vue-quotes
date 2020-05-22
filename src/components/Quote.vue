@@ -1,10 +1,13 @@
 <template>
-  <div class="col-lg-3 col-md-6 col-sm-12">
+  <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="card mb-4">
       <div class="card-body">
-        <h5 class="card-text">
-          <slot></slot>
-        </h5>
+        <blockquote class="blockquote mb-0">
+          <slot name="quote"></slot>
+          <footer class="blockquote-footer">
+            <slot name="quoteBy"></slot>
+          </footer>
+        </blockquote>
       </div>
     </div>
   </div>
@@ -15,15 +18,22 @@ export default {};
 </script>
 
 <style scoped>
-.card-text {
+.blockquote {
   font-family: 'Satisfy', cursive;
   font-size: 24px;
   color: #222f3e;
 }
+.blockquote-footer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  color: #2d3436;
+}
 .card {
-  background-color: #badc58;
+  background-color: #55efc4;
+  transition: 0.3s;
+  cursor: pointer;
 }
 .card:hover {
-  background-color: #ffbe76;
+  background-color: #ff7675;
 }
 </style>

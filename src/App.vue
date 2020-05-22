@@ -1,13 +1,20 @@
 <template>
   <div class="container mt-4">
-    <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>
     <new-quote @quoteAdded="addNewQuote"></new-quote>
     <quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></quote-grid>
+    <app-footer :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-footer>
+    <div class="row">
+      <div class="col-lg-4 mx-auto">
+        <div class="alert alert-danger">
+          Click on quotes to delete.
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Header from './components/Header';
+import Footer from './components/Footer';
 import NewQuote from './components/NewQuote';
 import QuoteGrid from './components/QuoteGrid';
 
@@ -15,7 +22,10 @@ export default {
   data() {
     return {
       maxQuotes: 10,
-      quotes: ['First Quote', 'Second quote'],
+      quotes: [
+        { quote: 'Aku sayang kamu', quoteBy: 'Sasa' },
+        { quote: 'Aku juga', quoteBy: 'Fadhlu' },
+      ],
     };
   },
   methods: {
@@ -32,7 +42,7 @@ export default {
   components: {
     quoteGrid: QuoteGrid,
     newQuote: NewQuote,
-    appHeader: Header,
+    appFooter: Footer,
   },
 };
 </script>
